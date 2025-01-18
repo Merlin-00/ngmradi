@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  font-family: "Lato", serif;
+  font-weight: 500;
+  font-style: normal;
+
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: mat.$azure-palette,
+      typography: "Lato",
+      density: 0,
+    )
+  );
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+
+  //Custom scroll bar
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: initial;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mat-sys-on-surface);
+    border-radius: 8px;
+  }
+}
+body.dark-theme {
+  color-scheme: dark;
+}
+.mat-divider {
+  border-top-color: var(--mat-sys-outline-variant) !important;
+}
