@@ -18,7 +18,7 @@ import { StateService } from '../../../core/services/utilities/state.service';
     RouterOutlet,
   ],
   template: `
-    <mat-drawer-container>
+    <mat-drawer-container autosize style="height: calc(100vh - 65px)">
       <mat-drawer
         [mode]="viewpoint() >= ismedium ? 'side' : 'over'"
         [opened]="viewpoint() >= ismedium || isToogleDrawer()"
@@ -49,11 +49,6 @@ import { StateService } from '../../../core/services/utilities/state.service';
     </mat-drawer-container>
   `,
   styles: `
-  mat-drawer-container{
-    height: calc(100vh - 65px);
-    display: flex;
-    flex-direction: column;
-  }
   mat-drawer{
     width: 220px;
     border-right: 1px solid var(--mat-sys-outline-variant); 
