@@ -1,4 +1,22 @@
-import { Component, inject, input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
+import {
+  CdkDragDrop,
+  CdkDrag,
+  CdkDropList,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { Task } from '../../core/models/task.model';
+import { FirestoreService } from '../../core/services/firebase/firestore.service';
+import { TodoComponent } from './todo/todo.component';
 import { Observable, Subscription } from 'rxjs';
 import { Project } from '../../core/models/project.model';
 import {
@@ -7,42 +25,37 @@ import {
   Timestamp,
 } from '@angular/fire/firestore';
 import { Title } from '@angular/platform-browser';
-import { FirestoreService } from '../../core/services/firebase/firestore.service';
-import { AuthService } from '../../core/services/firebase/auth.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AsyncPipe, DatePipe } from '@angular/common';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { MatDividerModule } from '@angular/material/divider';
-import { SetProjectComponent } from '../home/projects/set-project/set-project.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatCardModule } from '@angular/material/card';
+import { AsyncPipe, DatePipe } from '@angular/common';
+import { AuthService } from '../../core/services/firebase/auth.service';
 import { SetTodoComponent } from './todo/set-todo.component';
-import { Task } from '../../core/models/task.model';
-import { TodoComponent } from './todo/todo.component';
-import { CdkDrag, CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SetProjectComponent } from '../home/projects/set-project/set-project.component';
 
 @Component({
-  selector: 'app-projet',
+  selector: 'app-project',
   imports: [
+    CdkDropList,
+    CdkDrag,
+    MatCardModule,
+    MatDividerModule,
+    TodoComponent,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    AsyncPipe,
-    MatTooltipModule,
     RouterLink,
-    MatDividerModule,
+    MatTooltipModule,
+    AsyncPipe,
+    MatButtonModule,
     DatePipe,
-    MatCardModule,
-    TodoComponent,
-    CdkDrag,
-    CdkDropList,
   ],
   templateUrl: './projet.component.html',
-  styleUrl: './projet.component.scss',
+  styleUrls: ['./projet.component.scss'],
 })
 export default class ProjetComponent implements OnInit, OnDestroy {
   id = input('id');
