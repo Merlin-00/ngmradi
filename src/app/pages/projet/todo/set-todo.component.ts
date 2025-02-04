@@ -70,7 +70,7 @@ export class SetTodoComponent implements OnInit, OnDestroy {
       id: todoId,
       uid: user?.uid!,
       projectId: this.todo?.projectId!,
-      status: 'backlog',
+      status: this.todo?.id ? this.todo?.status : 'backlog',
       createdAt: this.todo?.id ? this.todo.createdAt : serverTimestamp(),
       updatedAt: serverTimestamp(),
       ...this.todoForm.getRawValue(),
