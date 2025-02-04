@@ -20,7 +20,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatBadgeModule,
     UpperCasePipe,
-    MatButtonModule,
     MatIconModule,
     MatTooltipModule,
     AsyncPipe,
