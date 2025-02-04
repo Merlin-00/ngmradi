@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ngmradi",
+    "public": "dist/ngmradi/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,8 +1,5 @@
 {
   "projects": {
-    "default": "ngmradi-v1",
-    "hosting": "ngmradi-v1"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "ngmradi-v1"
+  }
 }
